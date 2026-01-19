@@ -1,55 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
 </head>
+
 <body>
-    <main>  
-    <h1>Generate Secure Password</h1>
-    <h2>Stop using weak passwords. Stay safe online.</h2>
+    <main>
+        <header>
+            <h1>Generate Secure Password</h1>
+            <h2>Stop using weak passwords. Stay safe online.</h2>
+        </header>
 
-    <section>
-        <!--Password & Copy Button-->
-        <div>
-        <input disabled type="text">
-        <button>Copy</button>
-        </div>
-        
-        <!-- Slider-->
-         <div>
-            <label>Password Length</label>
-            <input type="range">
-         </div>   
-        
-        <!--Checkboxes-->
-        <label for="include-uppercase">Include Uppercase Letters</label>
-        <input checked type="checkbox" id="include-uppercase">
+        <section class="password-card">
+            
+            <div class="result-container">
+                <input type="text" disabled aria-label="Generated Password">
+                <button class="btn btn-copy">Copy</button>
+            </div>
 
-        <label for="include-lowercase">Include Lowercase Letters</label>
-        <input checked type="checkbox" id="include-lowercase">
+            <div class="form-group">
+                <div class="slider-header">
+                    <label for="length-slider">Password Length</label>
+                    <span id="length-value">10</span>
+                </div>
+                <input type="range" id="length-slider" min="0" max="20" value="10">
+            </div>
 
-        <label for="include-numbers">Inlcude Numbers</label>
-        <input checked type="checkbox" id="include-numbers">
+            <div class="form-group">
+                <label for="include-uppercase">Include Uppercase Letters</label>
+                <input type="checkbox" id="include-uppercase" checked>
+            </div>
 
-        <label for="include-symbols">Include Symbols</label>
-        <input checked type="checkbox" id="include-symbols">
+            <div class="form-group">
+                <label for="include-lowercase">Include Lowercase Letters</label>
+                <input type="checkbox" id="include-lowercase" checked>
+            </div>
 
-        <!--Button-->
-        <button>Generate Password</button>
+            <div class="form-group">
+                <label for="include-numbers">Include Numbers</label>
+                <input type="checkbox" id="include-numbers" checked>
+            </div>
 
-    </section>
+            <div class="form-group">
+                <label for="include-symbols">Include Symbols</label>
+                <input type="checkbox" id="include-symbols" checked>
+            </div>
+
+            <button class="btn btn-generate">Generate Password</button>
+
+        </section>
     </main>
 
     <footer>
         <p>Designed & Built by rkaus-dev</p>
     </footer>
 </body>
+
 </html>
-
-
-<!--
-dann bauch ich noch logische divs ein
-Im screenshot hat der slide ganz rechts sesd
--->sd
