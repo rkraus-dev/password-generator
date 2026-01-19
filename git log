@@ -1,0 +1,17 @@
+[33mcommit 2851af1df13981a6795ca022a83a234cead111ae[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Robert <krobert98@outlook.de>
+Date:   Mon Jan 19 13:52:31 2026 +0100
+
+    chore: create index.html with boilerplate
+
+[33mcommit 857a6e132404143480f67f7a461e790723b67ab4[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Robert <krobert98@outlook.de>
+Date:   Mon Jan 19 13:03:45 2026 +0100
+
+    update README with project roadmap and template
+
+[33mcommit 5f6f0f39df97cceae1a235249f2780e6828b2e57[m
+Author: Robert <krobert98@outlook.de>
+Date:   Mon Jan 19 12:57:32 2026 +0100
+
+    Initial commit
