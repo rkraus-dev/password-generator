@@ -1,23 +1,12 @@
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(-45deg, #0f172a, #1e3a8a, #3b82f6, #60a5fa);
-	background-size: 400% 400%;
-	animation: gradient 30s ease infinite;
-	height: 100vh;
+    background: linear-gradient(180deg, #91C0FF 0%, #FFFFFF 100%);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
 
 main {
     width: 100%;
@@ -29,7 +18,7 @@ main {
 
 h1 {
     font-size: 60px;
-    color: #FFFFFF;
+    color: #333236;
     margin: 8px;
 }
 
