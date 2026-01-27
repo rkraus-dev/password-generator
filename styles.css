@@ -4,99 +4,146 @@ body {
     min-height: 100vh;
     margin: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
 main {
     width: 100%;
-    max-width: 80%;
-    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; 
+    box-sizing: border-box; 
+}
+header {
     text-align: center;
-    border-radius: 16px;
+    margin-top: -60px;
+    margin-bottom: 25px;
+    padding: 0 20px;
 }
 
 h1 {
     font-size: 60px;
     color: #333236;
-    margin: 8px;
+    margin: 0 0 10px 0;
+    line-height: 1.1;
+    letter-spacing: -1px;
 }
 
 h2 {
-    color: white;
+    color: #57565c;
     font-size: 24px;
     font-weight: 400;
-    margin: 8px;
+    margin: 0;
 }
 
 .password-card {
-    width: 100%;
-    max-width: 450px; 
-    margin: 30px auto; 
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.22);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 32px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5),
-        inset 0 -1px 0 rgba(255, 255, 255, 0.1),
-        inset 0 0 16px 8px rgba(255, 255, 255, 0.05); 
-    
+        -35px 35px 68px 0px rgba(165, 197, 239, 0.5), 
+        inset 7px -7px 16px 0px rgba(165, 197, 239, 0.6), 
+        inset 0px 11px 28px 0px rgb(255, 255, 255);
+    width: 90%;             
+    max-width: 450px;       
+    margin: 20px auto; 
+    padding: 40px;            
     position: relative;
     overflow: hidden;
-    text-align: left; 
+    text-align: left;
+    transition: transform 0.3s ease;
 }
 
+.form-group {
+    margin-bottom: 20px;
+}
+
+.result-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.result-container input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+    color: #333236;
+    font-weight: 700;
+}
+
+.btn-generate {
+    color: white;
+    background-color: #3D96F5;
+    border: none;
+    padding: 18px;
+    cursor: pointer;
+    border-radius: 16px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(61, 150, 245, 0.3);
+}
+
+.btn-generate:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.btn-copy {
+    background-color: #333236;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+}
+
+#footer-text {
+    color: #57565c;
+    font-size: 0.85rem;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+/* Glossy glass effects using pseudo-elements */
 .password-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.8),
-        transparent
-    );
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
 }
 
 .password-card::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 1px;
-    height: 100%;
-    background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.8),
-        transparent,
-        rgba(255, 255, 255, 0.3)
-    );
+    top: 0; left: 0; width: 1px; height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), transparent, rgba(255, 255, 255, 0.3));
 }
 
-.btn-generate {
-    color: White;
-    background-color: #3D96F5FF;
-    border-radius: 15px;
-    width: 100%;
-    font-weight: 600;
-    
-}
-
-.btn-generate:hover {
-    background-color: #1d4ed8;
-}
-
-#footer-text {
-    font-size: 14px;
-    width: 100%;
-    margin-top: 10px;
-    color: #9CA3AF;
-    text-align: center;
+@media (max-width: 480px) {
+    h1 { font-size: 36px; }
+    h2 { font-size: 18px; }
+    header { margin-top: -20px; }
+    .password-card {
+        padding: 30px 20px;
+        border-radius: 24px;
+    }
 }
