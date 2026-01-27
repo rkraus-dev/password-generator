@@ -19,13 +19,22 @@
         </header>
 
         <section class="password-card">
-
             <div class="result-container">
-                <input type="text" readonly aria-label="Generated Password" placeholder="P4ssw0rd!">
-                <button class="btn btn-copy">
+                <input type="text" id="password-display" readonly aria-label="Generated Password" placeholder="P4ssw0rd!">
+                <button id="copy-btn" class="btn-copy">
                     <img class="icon-copy" src="assets/icons/copy.svg" alt="">
                     Copy
                 </button>
+            </div>
+
+            <div class="strength-meter">
+                <div class="strength-text">
+                    <span>Strength</span>
+                    <span id="strength-label">Medium</span>
+                </div>
+                <div class="strength-bar-container">
+                    <div id="strength-bar" class="strength-bar medium"></div>
+                </div>
             </div>
 
             <div class="form-group">
@@ -52,4 +61,18 @@
             </div>
 
             <div class="form-group toggle-group">
-                <label for="include
+                <label for="include-symbols">Include Symbols</label>
+                <input type="checkbox" id="include-symbols" class="apple-switch" checked>
+            </div>
+
+            <button id="generate-btn" class="btn-generate">Generate Password</button>
+
+        </section>
+    </main>
+
+    <footer>
+        <p id="footer-text">Designed & Built by <a class="developer-link" href="https://rkraus.dev" target="_blank" rel="noopener noreferrer">rkraus-dev</a></p>
+    </footer>
+</body>
+
+</html>

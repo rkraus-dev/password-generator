@@ -1,34 +1,55 @@
+/* --- Global Styles & Scrollbar --- */
 body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(180deg, #91C0FF 0%, #FFFFFF 100%);
     min-height: 100vh;
     margin: 0;
-    /* Main axis setup for vertical content distribution */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Custom Scrollbar in Toggle-Blue */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3D96F5;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1d4ed8;
+}
+
+/* --- Main Layout --- */
 main {
     width: 100%;
-    flex: 1; /* Occupies remaining space to push footer down */
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
-    padding: 20px; 
-    box-sizing: border-box; 
+    /* Increased horizontal padding to protect the card edges on mobile */
+    padding: 40px 15px; 
+    box-sizing: border-box;
 }
 
 header {
     text-align: center;
-    margin-top: -60px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     padding: 0 20px;
 }
 
 h1 {
-    font-size: 60px;
+    /* Slightly higher minimum for mobile visibility */
+    font-size: clamp(42px, 10vw, 60px); 
     color: #333236;
     margin: 0 0 10px 0;
     line-height: 1.1;
@@ -42,28 +63,95 @@ h2 {
     margin: 0;
 }
 
+/* --- Password Card (Glassmorphism) --- */
 .password-card {
     background-color: rgba(255, 255, 255, 0.3);
-    /* Glassmorphism effect */
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border-radius: 32px;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    /* Multi-layered shadow for depth and inner light glow */
     box-shadow: 
         -35px 35px 68px 0px rgba(165, 197, 239, 0.5), 
         inset 7px -7px 16px 0px rgba(165, 197, 239, 0.6), 
         inset 0px 11px 28px 0px rgb(255, 255, 255);
-    width: 90%;             
+    /* 95% ensures a small gap to the screen edge on mobile */
+    width: 95%;             
     max-width: 450px;       
-    margin: 20px auto; 
     padding: 40px;            
     position: relative;
     overflow: hidden;
     text-align: left;
-    transition: transform 0.3s ease;
+    box-sizing: border-box;
 }
 
+/* --- Result Display --- */
+.result-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.result-container input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+    color: #333236;
+    font-weight: 700;
+}
+
+.btn-copy {
+    background-color: #333236;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.icon-copy {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1); 
+}
+
+/* --- Strength Meter --- */
+.strength-meter {
+    margin-bottom: 25px;
+}
+
+.strength-text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #57565c;
+}
+
+.strength-bar-container {
+    height: 6px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 66%;
+    background-color: #ff9f0a;
+    border-radius: 10px;
+    transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+/* --- Form Elements --- */
 .form-group {
     margin-bottom: 20px;
 }
@@ -74,13 +162,6 @@ h2 {
     align-items: center;
 }
 
-.toggle-group label {
-    color: #333236;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-/* Custom iOS-style toggle switch */
 .apple-switch {
     appearance: none;
     -webkit-appearance: none;
@@ -91,11 +172,8 @@ h2 {
     position: relative;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    outline: none;
-    flex-shrink: 0;
 }
 
-/* Toggle handle (knob) */
 .apple-switch::before {
     content: "";
     position: absolute;
@@ -133,47 +211,7 @@ input[type="range"] {
     cursor: pointer;
 }
 
-.result-container {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.result-container input {
-    flex: 1;
-    padding: 12px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    background: rgba(255, 255, 255, 0.2);
-    color: #333236;
-    font-weight: 700;
-}
-
-.btn-copy {
-    background-color: #333236;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background-color 0.2s ease;
-}
-
-.btn-copy:hover {
-    background-color: #4a494e;
-}
-
-.icon-copy {
-    width: 18px;
-    height: 18px;
-    /* Inverts black SVG icons to white */
-    filter: brightness(0) invert(1); 
-}
-
+/* --- Buttons --- */
 .btn-generate {
     color: white;
     background-color: #3D96F5;
@@ -185,62 +223,39 @@ input[type="range"] {
     font-weight: 600;
     font-size: 18px;
     margin-top: 10px;
-    transition: all 0.2s ease;
     box-shadow: 0 4px 15px rgba(61, 150, 245, 0.3);
 }
 
-.btn-generate:hover {
-    background-color: #1d4ed8;
-    transform: translateY(-2px);
-}
-
+/* --- Footer --- */
 footer {
     width: 100%;
     text-align: center;
     padding: 25px 0;
 }
 
-#footer-text {
-    color: #57565c;
-    font-size: 0.85rem;
-    margin: 0;
-    letter-spacing: 0.5px;
-}
-
 .developer-link {
     color: #3D96F5;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.2s ease;
 }
 
-.developer-link:hover {
-    color: #1d4ed8;
-    text-decoration: underline;
-}
-
-/* Decorative glass reflections */
-.password-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-}
-
-.password-card::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 1px; height: 100%;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), transparent, rgba(255, 255, 255, 0.3));
-}
-
-/* Mobile responsiveness: adjust typography and spacing */
+/* --- Media Queries --- */
 @media (max-width: 480px) {
-    h1 { font-size: 36px; }
-    h2 { font-size: 18px; }
-    header { margin-top: -20px; }
-    .password-card {
-        padding: 30px 20px;
-        border-radius: 24px;
+    /* Header breathing room on small devices */
+    main {
+        padding-top: 50px; 
+    }
+    
+    h1 { 
+        font-size: 44px; /* Hard value to ensure visibility */
+    }
+    
+    h2 { 
+        font-size: 18px; 
+    }
+    
+    .password-card { 
+        padding: 30px 20px; 
+        /* Card width stays safe due to parent padding */
     }
 }
