@@ -3,6 +3,7 @@ body {
     background: linear-gradient(180deg, #91C0FF 0%, #FFFFFF 100%);
     min-height: 100vh;
     margin: 0;
+    /* Main axis setup for vertical content distribution */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,7 +11,7 @@ body {
 
 main {
     width: 100%;
-    flex: 1;
+    flex: 1; /* Occupies remaining space to push footer down */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,6 +19,7 @@ main {
     padding: 20px; 
     box-sizing: border-box; 
 }
+
 header {
     text-align: center;
     margin-top: -60px;
@@ -42,10 +44,12 @@ h2 {
 
 .password-card {
     background-color: rgba(255, 255, 255, 0.3);
+    /* Glassmorphism effect */
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border-radius: 32px;
     border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Multi-layered shadow for depth and inner light glow */
     box-shadow: 
         -35px 35px 68px 0px rgba(165, 197, 239, 0.5), 
         inset 7px -7px 16px 0px rgba(165, 197, 239, 0.6), 
@@ -62,6 +66,71 @@ h2 {
 
 .form-group {
     margin-bottom: 20px;
+}
+
+.toggle-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle-group label {
+    color: #333236;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Custom iOS-style toggle switch */
+.apple-switch {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 50px;
+    height: 26px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none;
+    flex-shrink: 0;
+}
+
+/* Toggle handle (knob) */
+.apple-switch::before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.apple-switch:checked {
+    background-color: #3D96F5;
+}
+
+.apple-switch:checked::before {
+    transform: translateX(24px);
+}
+
+.slider-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#length-value {
+    font-weight: 700;
+    color: #3D96F5;
+}
+
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
 }
 
 .result-container {
@@ -90,7 +159,7 @@ h2 {
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 8px; /* Space between icon and text */
+    gap: 8px;
     transition: background-color 0.2s ease;
 }
 
@@ -99,9 +168,9 @@ h2 {
 }
 
 .icon-copy {
-    width: 18px;  /* Adjust size as needed */
+    width: 18px;
     height: 18px;
-    /* If your SVG is black, this filter makes it white */
+    /* Inverts black SVG icons to white */
     filter: brightness(0) invert(1); 
 }
 
@@ -125,16 +194,6 @@ h2 {
     transform: translateY(-2px);
 }
 
-.btn-copy {
-    background-color: #333236;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
-}
-
 footer {
     width: 100%;
     text-align: center;
@@ -149,18 +208,18 @@ footer {
 }
 
 .developer-link {
-    color: #3D96F5; /* Dein Blau-Ton */
-    text-decoration: none; /* Entfernt den Unterstrich */
+    color: #3D96F5;
+    text-decoration: none;
     font-weight: 600;
     transition: color 0.2s ease;
 }
 
 .developer-link:hover {
-    color: #1d4ed8; /* Dunkler beim Drüberfahren */
-    text-decoration: underline; /* Zeigt Interaktion */
+    color: #1d4ed8;
+    text-decoration: underline;
 }
 
-/* Glossy glass effects using pseudo-elements */
+/* Decorative glass reflections */
 .password-card::before {
     content: '';
     position: absolute;
@@ -175,6 +234,7 @@ footer {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), transparent, rgba(255, 255, 255, 0.3));
 }
 
+/* Mobile responsiveness: adjust typography and spacing */
 @media (max-width: 480px) {
     h1 { font-size: 36px; }
     h2 { font-size: 18px; }
