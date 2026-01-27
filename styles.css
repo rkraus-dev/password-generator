@@ -88,8 +88,6 @@ h2 {
     border-radius: 10px;
     cursor: pointer;
     font-weight: 600;
-    
-    /* Layout for Icon and Text */
     display: flex;
     align-items: center;
     gap: 8px; /* Space between icon and text */
@@ -148,6 +146,18 @@ footer {
     font-size: 0.85rem;
     margin: 0;
     letter-spacing: 0.5px;
+}
+
+.developer-link {
+    color: #3D96F5; /* Dein Blau-Ton */
+    text-decoration: none; /* Entfernt den Unterstrich */
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.developer-link:hover {
+    color: #1d4ed8; /* Dunkler beim Drüberfahren */
+    text-decoration: underline; /* Zeigt Interaktion */
 }
 
 /* Glossy glass effects using pseudo-elements */
